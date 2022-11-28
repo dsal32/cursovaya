@@ -1,0 +1,58 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#define _USE_MATH_DEFINES
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+
+struct communication
+{
+	char duration[40];
+	char from[40];
+	char lasting[40];
+	char code[40];
+	char daytime[40];
+	
+};
+
+typedef struct communication communication_t;
+
+int main()
+{
+	system("chcp 1251");
+	setlocale(LC_ALL, "Rus");
+	communication_t x;
+	x = (communication_t){ ' ', ' ', ' ', ' ', ' ',  };
+	int n = 1;
+	printf("средняя суточная длительность входящего звонка - 1\nвходящий или исходящий звонок - 2\nпродолжитенльность звонка - 3\nкод абонента - 4\nдата и время-  5\nВывод данных о звонке - 6\n");
+	while (n != 0)
+	{
+		scanf("%d", &n);
+		switch (n)
+		{
+		case(1):
+			printf("Ввдеите среднюю суточную длительность входящего звонка \n");
+			scanf("%s", &x.duration);
+			break;
+		case(2):
+			printf("Выберите входящий или исходящий звонок\n");
+			scanf("%s", &x.from);
+			break;
+		case(3):
+			printf("Введите продолжитенльность звонка\n");
+			scanf("%s", &x.lasting);
+			break;
+		case(4):
+			printf("Введите код абонента\n");
+			scanf("%s", &x.code);
+			break;
+		case(5):
+			printf("Введите дату и время\n");
+			scanf("%s", &x.daytime);
+			break;
+		case(6):
+			printf("средняя суточная длительность входящего звонка: %s\nДиагональ: %s\nвходящий или исходящий звонок: %s\nпродолжитенльность звонка: %s\nкод абонента: %s\nдата и время: %s\n", x.duration, x.from, x.lasting, x.code, x.daytime);
+			break;
+		}
+	}
+
+}
